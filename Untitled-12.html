@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Info Page</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+    body {
+      background: #eef2ff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1e293b;
+    }
+
+    .weather-grid {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .weather-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .weather-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .city {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .temp {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .condition {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+
+    .controls {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    select {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #c7d2fe;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Weather Info</h1>
+
+  <div class="controls">
+    <select id="filter">
+      <option value="all">All Cities</option>
+      <option value="hot">Hot (&gt; 30°C)</option>
+      <option value="cold">Cold (&lt; 20°C)</option>
+    </select>
+  </div>
+
+  <section class="weather-grid" id="weatherGrid"></section>
+
+  <script>
+    const weatherData = [
+      { city: 'Delhi', temp: 34, condition: 'Sunny' },
+      { city: 'Mumbai', temp: 29, condition: 'Cloudy' },
+      { city: 'Bengaluru', temp: 22, condition: 'Rainy' },
+      { city: 'Shimla', temp: 14, condition: 'Cold' }
+    ];
+
+    const grid = document.getElementById('weatherGrid');
+    const filter = document.getElementById('filter');
+
+    function getIcon(condition) {
+      if (condition === 'Sunny') return '☀️';
+      if (condition === 'Cloudy') return '☁️';
+      if (condition === 'Rainy') return '🌧️';
+      if (condition === 'Cold') return '❄️';
+      return '🌤️';
+    }
+
+    function renderWeather(data) {
+      grid.innerHTML = '';
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'weather-card';
+
+        card.innerHTML = `
+          <div class="city">${item.city}</div>
+          <div class="icon">${getIcon(item.condition)}</div>
+          <div class="temp">${item.temp}°C</div>
+          <div class="condition">${item.condition}</div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    filter.addEventListener('change', () => {
+      let filtered = weatherData;
+
+      if (filter.value === 'hot') {
+        filtered = weatherData.filter(w => w.temp > 30);
+      } else if (filter.value === 'cold') {
+        filtered = weatherData.filter(w => w.temp < 20);
+      }
+
+      renderWeather(filtered);
+    });
+
+    renderWeather(weatherData);
+  </script>
+
+</body>
+</html>
