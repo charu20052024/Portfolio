@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ladies Watch Showcase</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+
+    body {
+      background: #f2cfe2;
+      padding: 40px;
+      color: #5e0dd6;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+
+    /* Grid layout */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: #0c0d0e;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .product-info {
+      padding: 18px;
+      flex: 1;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .product-info p {
+      font-size: 0.9rem;
+      color: #cfed99;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #f16a9e;
+      margin-bottom: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #2b6cb0;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #1e4f86;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ladies Watches Showcase</h1>
+
+  <section class="product-grid">
+
+    <div class="product-card">
+      <img src="https://m.media-amazon.com/images/I/716nmgd2ExL._AC_UY1100_.jpg" alt="OLEVS Womens Watch" />
+      <div class="product-info">
+        <h3>OLEVS Womens Watch X</h3>
+        <p>Diamond Female Watches for Ladies Analog Quartz Stainless Steel Waterproof Luminous Day Date Two Tone Wristwatch.</p>
+        <div class="price">₹3,800</div>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.sonatawatches.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dw895f9da8/images/Sonata/Catalog/87064KD01_1.jpg" alt="Sonata Ladies Watch" />
+      <div class="product-info">
+        <h3>Sonata Watch</h3>
+        <p>Lightweight Waterproof watches.</p>
+        <div class="price">₹1,299</div>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://www.carlington.in/cdn/shop/files/Carlington_elite_analog_ladies_watch_CT_2007_roseblack.jpg?v=1696689556&width=2400" alt="Carlington Elite Watches" />
+      <div class="product-info">
+        <h3>Carlington Elite Watches</h3>
+        <p>Carlington Elite Ladies Self Adjustable Mesh Strap Water Resistant Analog Watch .</p>
+        <div class="price">₹999</div>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <img src="https://images-cdn.ubuy.co.in/65d8cbf843c07f53ad551aa8-olevs-luxury-ladies-watches-women-39-s.jpg" alt="Women's Quartz Watch" />
+      <div class="product-info">
+        <h3>Quartz Watch</h3>
+        <p>Stone Set Case and Stainless Steel Bracelet.</p>
+        <div class="price">₹3,799</div>
+        <a href="#" class="btn">View Details</a>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
